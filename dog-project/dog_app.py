@@ -450,7 +450,7 @@ test_tensors = paths_to_tensor(test_files).astype('float32')/255
 # - 全连接层：像素与标签的关系
 # 
 
-# In[20]:
+# In[15]:
 
 from keras.layers import Conv2D, MaxPooling2D, GlobalAveragePooling2D
 from keras.layers import Dropout, Flatten, Dense
@@ -507,7 +507,7 @@ model.add(Dropout(0.5))
 model.summary()
 
 
-# In[21]:
+# In[16]:
 
 ## 编译模型
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
@@ -530,7 +530,7 @@ model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['ac
 # 
 # 
 
-# In[22]:
+# In[17]:
 
 from keras.callbacks import ModelCheckpoint  
 
@@ -548,7 +548,7 @@ model.fit(train_tensors, train_targets,
           epochs=epochs, batch_size=20, callbacks=[checkpointer], verbose=0)
 
 
-# In[23]:
+# In[18]:
 
 ## 加载具有最好验证loss的模型
 
@@ -559,7 +559,7 @@ model.load_weights('saved_models/weights.best.from_scratch.hdf5')
 # 
 # 在狗图像的测试数据集上试用你的模型。确保测试准确率大于1%。
 
-# In[24]:
+# In[19]:
 
 # 获取测试数据集中每一个图像所预测的狗品种的index
 dog_breed_predictions = [np.argmax(model.predict(np.expand_dims(tensor, axis=0))) for tensor in test_tensors]
@@ -579,7 +579,7 @@ print('Test accuracy: %.4f%%' % test_accuracy)
 
 # ### 得到从图像中提取的特征向量（Bottleneck Features）
 
-# In[25]:
+# In[20]:
 
 bottleneck_features = np.load('bottleneck_features/DogVGG16Data.npz')
 train_VGG16 = bottleneck_features['train']
@@ -591,7 +591,7 @@ test_VGG16 = bottleneck_features['test']
 # 
 # 该模型使用预训练的 VGG-16 模型作为固定的图像特征提取器，其中 VGG-16 最后一层卷积层的输出被直接输入到我们的模型。我们只需要添加一个全局平均池化层以及一个全连接层，其中全连接层使用 softmax 激活函数，对每一个狗的种类都包含一个节点。
 
-# In[26]:
+# In[21]:
 
 VGG16_model = Sequential()
 VGG16_model.add(GlobalAveragePooling2D(input_shape=train_VGG16.shape[1:]))
@@ -600,14 +600,14 @@ VGG16_model.add(Dense(133, activation='softmax'))
 VGG16_model.summary()
 
 
-# In[27]:
+# In[22]:
 
 ## 编译模型
 
 VGG16_model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 
 
-# In[28]:
+# In[23]:
 
 ## 训练模型
 
@@ -620,7 +620,7 @@ VGG16_model.fit(train_VGG16, train_targets,
 
 
 
-# In[29]:
+# In[24]:
 
 ## 加载具有最好验证loss的模型
 
@@ -630,7 +630,7 @@ VGG16_model.load_weights('saved_models/weights.best.VGG16.hdf5')
 # ### 测试模型
 # 现在，我们可以测试此CNN在狗图像测试数据集中识别品种的效果如何。我们在下方打印出测试准确率。
 
-# In[30]:
+# In[25]:
 
 # 获取测试数据集中每一个图像所预测的狗品种的index
 VGG16_predictions = [np.argmax(VGG16_model.predict(np.expand_dims(feature, axis=0))) for feature in test_VGG16]
@@ -642,7 +642,7 @@ print('Test accuracy: %.4f%%' % test_accuracy)
 
 # ### 使用模型预测狗的品种
 
-# In[31]:
+# In[26]:
 
 from extract_bottleneck_features import *
 
@@ -684,7 +684,7 @@ def VGG16_predict_breed(img_path):
 #     valid_{network} = bottleneck_features['valid']
 #     test_{network} = bottleneck_features['test']
 
-# In[32]:
+# In[27]:
 
 ### TODO: 从另一个预训练的CNN获取bottleneck特征
 
@@ -698,11 +698,6 @@ def split_featuresdata(file_npz):
 # 使用 VGG19
 vgg19_npz = 'bottleneck_features/DogVGG19Data.npz'
 train_VGG19, valid_VGG19, test_VGG19 = split_featuresdata(vgg19_npz)
-
-
-# 使用 ResNet-50
-resnet50_npz = 'bottleneck_features/DogResnet50Data.npz'
-train_ResNet50, valid_ResNet50, test_ResNet50 = split_featuresdata(resnet50_npz)
 
 
 # ### 【练习】模型架构
@@ -723,28 +718,28 @@ train_ResNet50, valid_ResNet50, test_ResNet50 = split_featuresdata(resnet50_npz)
 # 
 # __回答:__ 
 # 
-# *具体步骤：*
-# - 1.定义框架：卷积层-》全局平均池化层-》全连接层
-# - 2.编译模型
-# - 3.训练模型：使用模型检查点存储具有低验证集loss的模型
-# - 4.测试模型
+# *实现最终 CNN 架构的具体步骤：*
+# - 1.Sequential 模型，从输入到输出过程对网络层进行叠加
+# - 2.GlobalAveragePooling2D：池化层，对2维输入进行全局平均值池化过滤
+# - 3.Dense:全连接层
+# - 4.summary:获取关于模型更详细的信息
 # 
-# *使用 ResNet-50 网络层达到了50层，效果较好，准确率可以达到 81.4593%*
+# *使用 ResNet-50 网络层达到了50层，效果较好，准确率可以达到 81%*
 # 
 # *相比步骤三中自己实现的网络，结构太简单只有3层网络，并且没有进行充分调优，训练效果不理想。*
 # 
 # *步骤四中的VGG16模型，训练速度慢，网络层只有16层，训练效果依然不够理想*
 # 
-# *VGG: 优点：简单有效。缺点：网络架构很大，消耗磁盘，并且训练速度非常慢*
+# **VGG: ** *VGG模型的网络架构 weight 数量较大，很消耗磁盘空间，网络比较深。VGG16 有528MB+,VGG19有549MB+,使得部署VGG比较耗时。VGG最主要的思想是增加网络深度，减小卷积核尺寸*
 # 
-# *ResNet:优点：在网络深度增加时不退化，可以训练非常深的网络*
+# **ResNet:***Resnet 比 VGG 更深，但模型却小很多，大小为100MB。Resent 主要是解决深度网络中的退化问题。深度学习网络的深度对最后的分类和识别效果有很大的影响，所以正常想法是把网络设计的越深越好，但是网络越深，梯度消失的现象越明显，训练效果也不好。*
 # 
-# *Inception: 模型的 weight 数量小*
+# **Inception: ***InceptionV3的 weight 数量小于 VGG 和 Resnet, 大小为 92MB， Inception 结构主要是把稀疏结构近似成几个密集的子矩阵，从而在减少参数的同时，更加有效的利用计算资源。将全连接甚至一般的卷积转化为稀疏连接的目的是增加网络深度和宽度，以提升网络性能。*
 # 
-# *Xception: Inception 的扩展，weight数量最少*
+# **Xception:*** Xception 是 Inception 架构的扩展， weight 大小为 88MB， Xception 是指卷积神经网络的特征图中的跨通道相关性和空间相关性的映射可以完全脱钩，即极端 Inception,使网络处理更简单有效。从 keras 说明中提供的数据来看， InceptionV3 与 Xception 的准确率相当，但都比VGG和Resnet要好*
 # 
 
-# In[33]:
+# In[28]:
 
 ### TODO: 定义你的框架
 
@@ -760,20 +755,13 @@ def get_mymodel(mytrain):
 # VGG19    
 myVGG19_model = get_mymodel(train_VGG19)
 
-#ResNet-50
-myResNet50_model = get_mymodel(train_ResNet50)
-    
 
-
-# In[34]:
+# In[29]:
 
 ### TODO: 编译模型
 
 #VGG19
 myVGG19_model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
-
-#ResNet-50
-myResNet50_model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 
 
 # ---
@@ -789,7 +777,7 @@ myResNet50_model.compile(loss='categorical_crossentropy', optimizer='rmsprop', m
 # 当然，你也可以对训练集进行 [数据增强](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html) 以优化模型的表现，不过这不是必须的步骤。
 # 
 
-# In[35]:
+# In[30]:
 
 ### TODO: 训练模型
 
@@ -807,18 +795,12 @@ def train_model(model, file_hdf5, train, valid):
 VGG19file_hdf5 = 'saved_models/weights.best.VGG19.hdf5'
 myVGG19_model = train_model(myVGG19_model, VGG19file_hdf5, train_VGG19, valid_VGG19)
 
-#ResNet-50
-ResNet50file_hdf5 = 'saved_models/weights.best.ResNet50.hdf5'
-myResNet50_model = train_model(myResNet50_model, ResNet50file_hdf5, train_ResNet50, valid_ResNet50)
 
-
-# In[36]:
+# In[31]:
 
 ### TODO: 加载具有最佳验证loss的模型权重
 
 myVGG19_model.load_weights(VGG19file_hdf5)
-
-myResNet50_model.load_weights(ResNet50file_hdf5)
 
 
 # ---
@@ -831,7 +813,7 @@ myResNet50_model.load_weights(ResNet50file_hdf5)
 # 
 # 在狗图像的测试数据集上试用你的模型。确保测试准确率大于60%。
 
-# In[37]:
+# In[32]:
 
 ### TODO: 在测试集上计算分类准确率
 
@@ -848,8 +830,87 @@ def get_testaccuracy(model, test):
 # VGG19
 get_testaccuracy(myVGG19_model, test_VGG19)
 
-# ResNet-50
+
+# **测试：ResNet50**
+
+# In[33]:
+
+### 1:从另一个预训练的CNN获取bottleneck特征
+resnet50_npz = 'bottleneck_features/DogResnet50Data.npz'
+train_ResNet50, valid_ResNet50, test_ResNet50 = split_featuresdata(resnet50_npz)
+
+
+### 2:定义你的框架
+myResNet50_model = get_mymodel(train_ResNet50)
+    
+
+### 3:编译模型
+myResNet50_model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+
+
+### 4:训练模型
+ResNet50file_hdf5 = 'saved_models/weights.best.ResNet50.hdf5'
+myResNet50_model = train_model(myResNet50_model, ResNet50file_hdf5, train_ResNet50, valid_ResNet50)
+
+
+### 5:加载具有最佳验证loss的模型权重
+myResNet50_model.load_weights(ResNet50file_hdf5)
+
+### 6:在测试集上计算分类准确率
 get_testaccuracy(myResNet50_model, test_ResNet50)
+
+
+
+# **测试：InceptionV3**
+
+# In[38]:
+
+### 1:从另一个预训练的CNN获取bottleneck特征
+Inception_npz = 'bottleneck_features/DogInceptionV3Data.npz'
+train_Inception, valid_Inception, test_Inception = split_featuresdata(Inception_npz)
+
+
+### 2:定义你的框架
+myInception_model = get_mymodel(train_Inception)
+
+### 3:编译模型
+myInception_model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+
+### 4:训练模型
+Inceptionfile_hdf5 = 'saved_models/weights.best.Inception.hdf5'
+myInception_model = train_model(myInception_model, Inceptionfile_hdf5, train_Inception, valid_Inception)
+
+### 5:加载具有最佳验证loss的模型权重
+myInception_model.load_weights(Inceptionfile_hdf5)
+
+### 6:在测试集上计算分类准确率
+get_testaccuracy(myInception_model, test_Inception)
+
+
+# **测试：Xception**
+
+# In[39]:
+
+### 1:从另一个预训练的CNN获取bottleneck特征
+Xception_npz = 'bottleneck_features/DogXceptionData.npz'
+train_Xception, valid_Xception, test_Xception = split_featuresdata(Xception_npz)
+
+
+### 2:定义你的框架
+myXception_model = get_mymodel(train_Xception)
+
+### 3:编译模型
+myXception_model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+
+### 4:训练模型
+Xceptionfile_hdf5 = 'saved_models/weights.best.Xception.hdf5'
+myXception_model = train_model(myXception_model, Xceptionfile_hdf5, train_Xception, valid_Xception)
+
+### 5:加载具有最佳验证loss的模型权重
+myXception_model.load_weights(Xceptionfile_hdf5)
+
+### 6:在测试集上计算分类准确率
+get_testaccuracy(myXception_model, test_Xception)
 
 
 # ---
@@ -873,7 +934,7 @@ get_testaccuracy(myResNet50_model, test_ResNet50)
 # 
 # ### __问题 9:__
 
-# In[38]:
+# In[40]:
 
 ### TODO: 写一个函数，该函数将图像的路径作为输入
 ### 然后返回此模型所预测的狗的品种
@@ -888,7 +949,7 @@ def predict_breed(img_path):
     return dog_names[np.argmax(predicted_vector)]
 
 
-# In[39]:
+# In[41]:
 
 print(human_files[1])
 predict_breed(human_files[1])
@@ -925,7 +986,7 @@ predict_breed(human_files[1])
 # ---
 # 
 
-# In[40]:
+# In[42]:
 
 ### TODO: 设计你的算法
 ### 自由地使用所需的代码单元数吧
@@ -990,13 +1051,13 @@ predict_human_dog(human_files[1])
 # 
 # - 改进点
 # 
-#  1.可以对与人类相似的狗狗图片增加显示
+#  1.可以对图片进行进一步预处理，例如去噪等
 #  
-#  2.可以增加识别的动物种类，例如增加鸟类识别
+#  2.可以对模型进一步调参，获得最优参数
 #  
-#  3.进一步尝试其他算法，提高准确率
+#  3.增加网络层数，提高准确率
 
-# In[41]:
+# In[43]:
 
 veritydata = load_files('verifyImages')
 # print(veritydata)
@@ -1006,7 +1067,7 @@ print(verity_files)
  
 
 
-# In[42]:
+# In[44]:
 
 ## TODO: 在你的电脑上，在步骤6中，至少在6张图片上运行你的算法。
 ## 自由地使用所需的代码单元数吧

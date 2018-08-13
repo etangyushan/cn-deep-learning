@@ -13661,9 +13661,9 @@ a7iGZ4JrZnEN13ANzwTXzOIaruEangmumcU1XMM1PBNcM4truIZreCa4ZhbXcA3X8Ezw/wGRo8GQ
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████████████████████████████████████████████████████████████████████████| 6680/6680 [01:30&lt;00:00, 73.72it/s]
-100%|████████████████████████████████████████████████████████████████████████████████| 835/835 [00:17&lt;00:00, 47.33it/s]
-100%|████████████████████████████████████████████████████████████████████████████████| 836/836 [00:14&lt;00:00, 56.80it/s]
+<pre>100%|██████████████████████████████████████████████████████████████████████████████| 6680/6680 [01:44&lt;00:00, 64.11it/s]
+100%|████████████████████████████████████████████████████████████████████████████████| 835/835 [00:17&lt;00:00, 48.16it/s]
+100%|████████████████████████████████████████████████████████████████████████████████| 836/836 [00:13&lt;00:00, 60.20it/s]
 </pre>
 </div>
 </div>
@@ -13720,7 +13720,7 @@ a7iGZ4JrZnEN13ANzwTXzOIaruEangmumcU1XMM1PBNcM4truIZreCa4ZhbXcA3X8Ezw/wGRo8GQ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.layers</span> <span class="k">import</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPooling2D</span><span class="p">,</span> <span class="n">GlobalAveragePooling2D</span>
@@ -13793,31 +13793,31 @@ a7iGZ4JrZnEN13ANzwTXzOIaruEangmumcU1XMM1PBNcM4truIZreCa4ZhbXcA3X8Ezw/wGRo8GQ
 <pre>_________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-conv2d_5 (Conv2D)            (None, 222, 222, 16)      448       
+conv2d_1 (Conv2D)            (None, 222, 222, 16)      448       
 _________________________________________________________________
-max_pooling2d_6 (MaxPooling2 (None, 111, 111, 16)      0         
+max_pooling2d_2 (MaxPooling2 (None, 111, 111, 16)      0         
 _________________________________________________________________
-conv2d_6 (Conv2D)            (None, 109, 109, 32)      4640      
+conv2d_2 (Conv2D)            (None, 109, 109, 32)      4640      
 _________________________________________________________________
-max_pooling2d_7 (MaxPooling2 (None, 54, 54, 32)        0         
+max_pooling2d_3 (MaxPooling2 (None, 54, 54, 32)        0         
 _________________________________________________________________
 dropout_1 (Dropout)          (None, 54, 54, 32)        0         
 _________________________________________________________________
-conv2d_7 (Conv2D)            (None, 52, 52, 64)        18496     
+conv2d_3 (Conv2D)            (None, 52, 52, 64)        18496     
 _________________________________________________________________
-max_pooling2d_8 (MaxPooling2 (None, 26, 26, 64)        0         
+max_pooling2d_4 (MaxPooling2 (None, 26, 26, 64)        0         
 _________________________________________________________________
 dropout_2 (Dropout)          (None, 26, 26, 64)        0         
 _________________________________________________________________
-conv2d_8 (Conv2D)            (None, 24, 24, 64)        36928     
+conv2d_4 (Conv2D)            (None, 24, 24, 64)        36928     
 _________________________________________________________________
-max_pooling2d_9 (MaxPooling2 (None, 12, 12, 64)        0         
+max_pooling2d_5 (MaxPooling2 (None, 12, 12, 64)        0         
 _________________________________________________________________
 dropout_3 (Dropout)          (None, 12, 12, 64)        0         
 _________________________________________________________________
-global_average_pooling2d_2 ( (None, 64)                0         
+global_average_pooling2d_1 ( (None, 64)                0         
 _________________________________________________________________
-dense_2 (Dense)              (None, 133)               8645      
+dense_1 (Dense)              (None, 133)               8645      
 _________________________________________________________________
 dropout_4 (Dropout)          (None, 133)               0         
 =================================================================
@@ -13835,7 +13835,7 @@ _________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## 编译模型</span>
@@ -13872,7 +13872,7 @@ _________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="k">import</span> <span class="n">ModelCheckpoint</span>  
@@ -13903,20 +13903,20 @@ _________________________________________________________________
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Epoch 00000: val_loss improved from inf to 13.09177, saving model to saved_models/weights.best.from_scratch.hdf5
-Epoch 00001: val_loss improved from 13.09177 to 12.39056, saving model to saved_models/weights.best.from_scratch.hdf5
-Epoch 00002: val_loss did not improve
+<pre>Epoch 00000: val_loss improved from inf to 12.86074, saving model to saved_models/weights.best.from_scratch.hdf5
+Epoch 00001: val_loss did not improve
+Epoch 00002: val_loss improved from 12.86074 to 12.32480, saving model to saved_models/weights.best.from_scratch.hdf5
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[22]:</div>
+<div class="prompt output_prompt">Out[17]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x24c8d985ef0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x2f8955ec5c0&gt;</pre>
 </div>
 
 </div>
@@ -13927,7 +13927,7 @@ Epoch 00002: val_loss did not improve
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## 加载具有最好验证loss的模型</span>
@@ -13952,7 +13952,7 @@ Epoch 00002: val_loss did not improve
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 获取测试数据集中每一个图像所预测的狗品种的index</span>
@@ -14007,7 +14007,7 @@ Epoch 00002: val_loss did not improve
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bottleneck_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;bottleneck_features/DogVGG16Data.npz&#39;</span><span class="p">)</span>
@@ -14033,7 +14033,7 @@ Epoch 00002: val_loss did not improve
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">VGG16_model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
@@ -14058,9 +14058,9 @@ Epoch 00002: val_loss did not improve
 <pre>_________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-global_average_pooling2d_3 ( (None, 512)               0         
+global_average_pooling2d_2 ( (None, 512)               0         
 _________________________________________________________________
-dense_3 (Dense)              (None, 133)               68229     
+dense_2 (Dense)              (None, 133)               68229     
 =================================================================
 Total params: 68,229.0
 Trainable params: 68,229.0
@@ -14076,7 +14076,7 @@ _________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## 编译模型</span>
@@ -14091,7 +14091,7 @@ _________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## 训练模型</span>
@@ -14116,37 +14116,37 @@ _________________________________________________________________
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Epoch 00000: val_loss improved from inf to 10.40162, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00001: val_loss improved from 10.40162 to 9.66688, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00002: val_loss improved from 9.66688 to 9.31468, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00003: val_loss improved from 9.31468 to 9.08097, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00004: val_loss improved from 9.08097 to 8.88238, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00005: val_loss improved from 8.88238 to 8.81272, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00006: val_loss improved from 8.81272 to 8.66675, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00007: val_loss improved from 8.66675 to 8.54741, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00008: val_loss improved from 8.54741 to 8.46166, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00009: val_loss improved from 8.46166 to 8.32201, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00010: val_loss improved from 8.32201 to 8.08115, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00011: val_loss improved from 8.08115 to 7.81814, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00012: val_loss improved from 7.81814 to 7.48630, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00013: val_loss improved from 7.48630 to 7.46319, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00014: val_loss improved from 7.46319 to 7.38905, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00015: val_loss did not improve
-Epoch 00016: val_loss improved from 7.38905 to 7.29600, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00017: val_loss improved from 7.29600 to 7.19686, saving model to saved_models/weights.best.VGG16.hdf5
-Epoch 00018: val_loss did not improve
-Epoch 00019: val_loss did not improve
+<pre>Epoch 00000: val_loss improved from inf to 11.08575, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00001: val_loss improved from 11.08575 to 10.20220, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00002: val_loss improved from 10.20220 to 10.03010, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00003: val_loss improved from 10.03010 to 9.77702, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00004: val_loss improved from 9.77702 to 9.75287, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00005: val_loss did not improve
+Epoch 00006: val_loss improved from 9.75287 to 9.74876, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00007: val_loss improved from 9.74876 to 9.51623, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00008: val_loss improved from 9.51623 to 9.28253, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00009: val_loss improved from 9.28253 to 9.17238, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00010: val_loss improved from 9.17238 to 8.91235, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00011: val_loss did not improve
+Epoch 00012: val_loss improved from 8.91235 to 8.84251, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00013: val_loss did not improve
+Epoch 00014: val_loss improved from 8.84251 to 8.64526, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00015: val_loss improved from 8.64526 to 8.38654, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00016: val_loss improved from 8.38654 to 8.27388, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00017: val_loss improved from 8.27388 to 8.21258, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00018: val_loss improved from 8.21258 to 8.12831, saving model to saved_models/weights.best.VGG16.hdf5
+Epoch 00019: val_loss improved from 8.12831 to 7.94607, saving model to saved_models/weights.best.VGG16.hdf5
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[28]:</div>
+<div class="prompt output_prompt">Out[23]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x24c8b8d1438&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x2f894c89828&gt;</pre>
 </div>
 
 </div>
@@ -14157,7 +14157,7 @@ Epoch 00019: val_loss did not improve
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## 加载具有最好验证loss的模型</span>
@@ -14182,7 +14182,7 @@ Epoch 00019: val_loss did not improve
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 获取测试数据集中每一个图像所预测的狗品种的index</span>
@@ -14205,7 +14205,7 @@ Epoch 00019: val_loss did not improve
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Test accuracy: 47.9665%
+<pre>Test accuracy: 44.1388%
 </pre>
 </div>
 </div>
@@ -14225,7 +14225,7 @@ Epoch 00019: val_loss did not improve
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">extract_bottleneck_features</span> <span class="k">import</span> <span class="o">*</span>
@@ -14277,7 +14277,7 @@ test_{network} = bottleneck_features['test']</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### TODO: 从另一个预训练的CNN获取bottleneck特征</span>
@@ -14292,11 +14292,6 @@ test_{network} = bottleneck_features['test']</code></pre>
 <span class="c1"># 使用 VGG19</span>
 <span class="n">vgg19_npz</span> <span class="o">=</span> <span class="s1">&#39;bottleneck_features/DogVGG19Data.npz&#39;</span>
 <span class="n">train_VGG19</span><span class="p">,</span> <span class="n">valid_VGG19</span><span class="p">,</span> <span class="n">test_VGG19</span> <span class="o">=</span> <span class="n">split_featuresdata</span><span class="p">(</span><span class="n">vgg19_npz</span><span class="p">)</span>
-
-
-<span class="c1"># 使用 ResNet-50</span>
-<span class="n">resnet50_npz</span> <span class="o">=</span> <span class="s1">&#39;bottleneck_features/DogResnet50Data.npz&#39;</span>
-<span class="n">train_ResNet50</span><span class="p">,</span> <span class="n">valid_ResNet50</span><span class="p">,</span> <span class="n">test_ResNet50</span> <span class="o">=</span> <span class="n">split_featuresdata</span><span class="p">(</span><span class="n">resnet50_npz</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14318,27 +14313,27 @@ test_{network} = bottleneck_features['test']</code></pre>
 <p><a id='question6'></a></p>
 <h3 id="&#38382;&#39064;-6:"><strong>&#38382;&#39064; 6:</strong><a class="anchor-link" href="#&#38382;&#39064;-6:">&#182;</a></h3><p>在下方的代码块中尝试使用 Keras 搭建最终的网络架构，并回答你实现最终 CNN 架构的步骤与每一步的作用，并描述你在迁移学习过程中，使用该网络架构的原因。</p>
 <p><strong>回答:</strong></p>
-<p><em>具体步骤：</em></p>
+<p><em>实现最终 CNN 架构的具体步骤：</em></p>
 <ul>
-<li>1.定义框架：卷积层-》全局平均池化层-》全连接层</li>
-<li>2.编译模型</li>
-<li>3.训练模型：使用模型检查点存储具有低验证集loss的模型</li>
-<li>4.测试模型</li>
+<li>1.Sequential 模型，从输入到输出过程对网络层进行叠加</li>
+<li>2.GlobalAveragePooling2D：池化层，对2维输入进行全局平均值池化过滤</li>
+<li>3.Dense:全连接层</li>
+<li>4.summary:获取关于模型更详细的信息</li>
 </ul>
-<p><em>使用 ResNet-50 网络层达到了50层，效果较好，准确率可以达到 81.4593%</em></p>
+<p><em>使用 ResNet-50 网络层达到了50层，效果较好，准确率可以达到 81%</em></p>
 <p><em>相比步骤三中自己实现的网络，结构太简单只有3层网络，并且没有进行充分调优，训练效果不理想。</em></p>
 <p><em>步骤四中的VGG16模型，训练速度慢，网络层只有16层，训练效果依然不够理想</em></p>
-<p><em>VGG: 优点：简单有效。缺点：网络架构很大，消耗磁盘，并且训练速度非常慢</em></p>
-<p><em>ResNet:优点：在网络深度增加时不退化，可以训练非常深的网络</em></p>
-<p><em>Inception: 模型的 weight 数量小</em></p>
-<p><em>Xception: Inception 的扩展，weight数量最少</em></p>
+<p><strong>VGG: </strong> <em>VGG模型的网络架构 weight 数量较大，很消耗磁盘空间，网络比较深。VGG16 有528MB+,VGG19有549MB+,使得部署VGG比较耗时。VGG最主要的思想是增加网络深度，减小卷积核尺寸</em></p>
+<p><strong>ResNet:*</strong>Resnet 比 VGG 更深，但模型却小很多，大小为100MB。Resent 主要是解决深度网络中的退化问题。深度学习网络的深度对最后的分类和识别效果有很大的影响，所以正常想法是把网络设计的越深越好，但是网络越深，梯度消失的现象越明显，训练效果也不好。*</p>
+<p><strong>Inception: *</strong>InceptionV3的 weight 数量小于 VGG 和 Resnet, 大小为 92MB， Inception 结构主要是把稀疏结构近似成几个密集的子矩阵，从而在减少参数的同时，更加有效的利用计算资源。将全连接甚至一般的卷积转化为稀疏连接的目的是增加网络深度和宽度，以提升网络性能。*</p>
+<p><strong>Xception:*</strong> Xception 是 Inception 架构的扩展， weight 大小为 88MB， Xception 是指卷积神经网络的特征图中的跨通道相关性和空间相关性的映射可以完全脱钩，即极端 Inception,使网络处理更简单有效。从 keras 说明中提供的数据来看， InceptionV3 与 Xception 的准确率相当，但都比VGG和Resnet要好*</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### TODO: 定义你的框架</span>
@@ -14354,10 +14349,6 @@ test_{network} = bottleneck_features['test']</code></pre>
     
 <span class="c1"># VGG19    </span>
 <span class="n">myVGG19_model</span> <span class="o">=</span> <span class="n">get_mymodel</span><span class="p">(</span><span class="n">train_VGG19</span><span class="p">)</span>
-
-<span class="c1">#ResNet-50</span>
-<span class="n">myResNet50_model</span> <span class="o">=</span> <span class="n">get_mymodel</span><span class="p">(</span><span class="n">train_ResNet50</span><span class="p">)</span>
-    
 </pre></div>
 
 </div>
@@ -14375,23 +14366,12 @@ test_{network} = bottleneck_features['test']</code></pre>
 <pre>_________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-global_average_pooling2d_4 ( (None, 512)               0         
+global_average_pooling2d_3 ( (None, 512)               0         
 _________________________________________________________________
-dense_4 (Dense)              (None, 133)               68229     
+dense_3 (Dense)              (None, 133)               68229     
 =================================================================
 Total params: 68,229.0
 Trainable params: 68,229.0
-Non-trainable params: 0.0
-_________________________________________________________________
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-global_average_pooling2d_5 ( (None, 2048)              0         
-_________________________________________________________________
-dense_5 (Dense)              (None, 133)               272517    
-=================================================================
-Total params: 272,517.0
-Trainable params: 272,517.0
 Non-trainable params: 0.0
 _________________________________________________________________
 </pre>
@@ -14404,16 +14384,13 @@ _________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### TODO: 编译模型</span>
 
 <span class="c1">#VGG19</span>
 <span class="n">myVGG19_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
-
-<span class="c1">#ResNet-50</span>
-<span class="n">myResNet50_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -14436,7 +14413,7 @@ _________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### TODO: 训练模型</span>
@@ -14454,10 +14431,6 @@ _________________________________________________________________
 <span class="c1"># VGG19</span>
 <span class="n">VGG19file_hdf5</span> <span class="o">=</span> <span class="s1">&#39;saved_models/weights.best.VGG19.hdf5&#39;</span>
 <span class="n">myVGG19_model</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">myVGG19_model</span><span class="p">,</span> <span class="n">VGG19file_hdf5</span><span class="p">,</span> <span class="n">train_VGG19</span><span class="p">,</span> <span class="n">valid_VGG19</span><span class="p">)</span>
-
-<span class="c1">#ResNet-50</span>
-<span class="n">ResNet50file_hdf5</span> <span class="o">=</span> <span class="s1">&#39;saved_models/weights.best.ResNet50.hdf5&#39;</span>
-<span class="n">myResNet50_model</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">myResNet50_model</span><span class="p">,</span> <span class="n">ResNet50file_hdf5</span><span class="p">,</span> <span class="n">train_ResNet50</span><span class="p">,</span> <span class="n">valid_ResNet50</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14472,45 +14445,25 @@ _________________________________________________________________
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Epoch 00000: val_loss improved from inf to 9.57844, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00001: val_loss improved from 9.57844 to 8.88005, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00002: val_loss improved from 8.88005 to 8.66728, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00003: val_loss improved from 8.66728 to 8.46347, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00004: val_loss improved from 8.46347 to 8.41496, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00005: val_loss improved from 8.41496 to 8.35099, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00006: val_loss did not improve
-Epoch 00007: val_loss improved from 8.35099 to 8.27035, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00008: val_loss improved from 8.27035 to 8.16947, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00009: val_loss did not improve
-Epoch 00010: val_loss did not improve
-Epoch 00011: val_loss improved from 8.16947 to 7.93596, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00012: val_loss improved from 7.93596 to 7.78546, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00013: val_loss improved from 7.78546 to 7.68939, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00014: val_loss improved from 7.68939 to 7.68179, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00015: val_loss did not improve
-Epoch 00016: val_loss improved from 7.68179 to 7.58880, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00017: val_loss improved from 7.58880 to 7.54924, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00018: val_loss improved from 7.54924 to 7.52073, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00019: val_loss improved from 7.52073 to 7.49753, saving model to saved_models/weights.best.VGG19.hdf5
-Epoch 00000: val_loss improved from inf to 0.84695, saving model to saved_models/weights.best.ResNet50.hdf5
-Epoch 00001: val_loss improved from 0.84695 to 0.74733, saving model to saved_models/weights.best.ResNet50.hdf5
-Epoch 00002: val_loss improved from 0.74733 to 0.72892, saving model to saved_models/weights.best.ResNet50.hdf5
-Epoch 00003: val_loss improved from 0.72892 to 0.69818, saving model to saved_models/weights.best.ResNet50.hdf5
-Epoch 00004: val_loss did not improve
-Epoch 00005: val_loss improved from 0.69818 to 0.64592, saving model to saved_models/weights.best.ResNet50.hdf5
-Epoch 00006: val_loss did not improve
+<pre>Epoch 00000: val_loss improved from inf to 9.39598, saving model to saved_models/weights.best.VGG19.hdf5
+Epoch 00001: val_loss improved from 9.39598 to 8.64881, saving model to saved_models/weights.best.VGG19.hdf5
+Epoch 00002: val_loss improved from 8.64881 to 8.40723, saving model to saved_models/weights.best.VGG19.hdf5
+Epoch 00003: val_loss improved from 8.40723 to 8.39408, saving model to saved_models/weights.best.VGG19.hdf5
+Epoch 00004: val_loss improved from 8.39408 to 8.21753, saving model to saved_models/weights.best.VGG19.hdf5
+Epoch 00005: val_loss improved from 8.21753 to 8.05521, saving model to saved_models/weights.best.VGG19.hdf5
+Epoch 00006: val_loss improved from 8.05521 to 7.95567, saving model to saved_models/weights.best.VGG19.hdf5
 Epoch 00007: val_loss did not improve
-Epoch 00008: val_loss did not improve
-Epoch 00009: val_loss did not improve
-Epoch 00010: val_loss did not improve
-Epoch 00011: val_loss did not improve
+Epoch 00008: val_loss improved from 7.95567 to 7.86388, saving model to saved_models/weights.best.VGG19.hdf5
+Epoch 00009: val_loss improved from 7.86388 to 7.70958, saving model to saved_models/weights.best.VGG19.hdf5
+Epoch 00010: val_loss improved from 7.70958 to 7.50400, saving model to saved_models/weights.best.VGG19.hdf5
+Epoch 00011: val_loss improved from 7.50400 to 7.39534, saving model to saved_models/weights.best.VGG19.hdf5
 Epoch 00012: val_loss did not improve
 Epoch 00013: val_loss did not improve
-Epoch 00014: val_loss did not improve
-Epoch 00015: val_loss did not improve
-Epoch 00016: val_loss did not improve
-Epoch 00017: val_loss did not improve
-Epoch 00018: val_loss did not improve
+Epoch 00014: val_loss improved from 7.39534 to 7.22744, saving model to saved_models/weights.best.VGG19.hdf5
+Epoch 00015: val_loss improved from 7.22744 to 7.20673, saving model to saved_models/weights.best.VGG19.hdf5
+Epoch 00016: val_loss improved from 7.20673 to 7.16815, saving model to saved_models/weights.best.VGG19.hdf5
+Epoch 00017: val_loss improved from 7.16815 to 6.96418, saving model to saved_models/weights.best.VGG19.hdf5
+Epoch 00018: val_loss improved from 6.96418 to 6.78775, saving model to saved_models/weights.best.VGG19.hdf5
 Epoch 00019: val_loss did not improve
 </pre>
 </div>
@@ -14522,14 +14475,12 @@ Epoch 00019: val_loss did not improve
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### TODO: 加载具有最佳验证loss的模型权重</span>
 
 <span class="n">myVGG19_model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">VGG19file_hdf5</span><span class="p">)</span>
-
-<span class="n">myResNet50_model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">ResNet50file_hdf5</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14551,7 +14502,7 @@ Epoch 00019: val_loss did not improve
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### TODO: 在测试集上计算分类准确率</span>
@@ -14568,8 +14519,77 @@ Epoch 00019: val_loss did not improve
 
 <span class="c1"># VGG19</span>
 <span class="n">get_testaccuracy</span><span class="p">(</span><span class="n">myVGG19_model</span><span class="p">,</span> <span class="n">test_VGG19</span><span class="p">)</span>
+</pre></div>
 
-<span class="c1"># ResNet-50</span>
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Test accuracy: 50.3589%
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[32]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>50.358851674641151</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>测试：ResNet50</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### 1:从另一个预训练的CNN获取bottleneck特征</span>
+<span class="n">resnet50_npz</span> <span class="o">=</span> <span class="s1">&#39;bottleneck_features/DogResnet50Data.npz&#39;</span>
+<span class="n">train_ResNet50</span><span class="p">,</span> <span class="n">valid_ResNet50</span><span class="p">,</span> <span class="n">test_ResNet50</span> <span class="o">=</span> <span class="n">split_featuresdata</span><span class="p">(</span><span class="n">resnet50_npz</span><span class="p">)</span>
+
+
+<span class="c1">### 2:定义你的框架</span>
+<span class="n">myResNet50_model</span> <span class="o">=</span> <span class="n">get_mymodel</span><span class="p">(</span><span class="n">train_ResNet50</span><span class="p">)</span>
+    
+
+<span class="c1">### 3:编译模型</span>
+<span class="n">myResNet50_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+
+<span class="c1">### 4:训练模型</span>
+<span class="n">ResNet50file_hdf5</span> <span class="o">=</span> <span class="s1">&#39;saved_models/weights.best.ResNet50.hdf5&#39;</span>
+<span class="n">myResNet50_model</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">myResNet50_model</span><span class="p">,</span> <span class="n">ResNet50file_hdf5</span><span class="p">,</span> <span class="n">train_ResNet50</span><span class="p">,</span> <span class="n">valid_ResNet50</span><span class="p">)</span>
+
+
+<span class="c1">### 5:加载具有最佳验证loss的模型权重</span>
+<span class="n">myResNet50_model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">ResNet50file_hdf5</span><span class="p">)</span>
+
+<span class="c1">### 6:在测试集上计算分类准确率</span>
 <span class="n">get_testaccuracy</span><span class="p">(</span><span class="n">myResNet50_model</span><span class="p">,</span> <span class="n">test_ResNet50</span><span class="p">)</span>
 </pre></div>
 
@@ -14585,19 +14605,249 @@ Epoch 00019: val_loss did not improve
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Test accuracy: 46.1722%
-Test accuracy: 81.8182%
+<pre>_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+global_average_pooling2d_4 ( (None, 2048)              0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 133)               272517    
+=================================================================
+Total params: 272,517.0
+Trainable params: 272,517.0
+Non-trainable params: 0.0
+_________________________________________________________________
+Epoch 00000: val_loss improved from inf to 0.81435, saving model to saved_models/weights.best.ResNet50.hdf5
+Epoch 00001: val_loss improved from 0.81435 to 0.70376, saving model to saved_models/weights.best.ResNet50.hdf5
+Epoch 00002: val_loss improved from 0.70376 to 0.69812, saving model to saved_models/weights.best.ResNet50.hdf5
+Epoch 00003: val_loss improved from 0.69812 to 0.67194, saving model to saved_models/weights.best.ResNet50.hdf5
+Epoch 00004: val_loss did not improve
+Epoch 00005: val_loss did not improve
+Epoch 00006: val_loss did not improve
+Epoch 00007: val_loss did not improve
+Epoch 00008: val_loss did not improve
+Epoch 00009: val_loss did not improve
+Epoch 00010: val_loss did not improve
+Epoch 00011: val_loss did not improve
+Epoch 00012: val_loss did not improve
+Epoch 00013: val_loss did not improve
+Epoch 00014: val_loss did not improve
+Epoch 00015: val_loss did not improve
+Epoch 00016: val_loss did not improve
+Epoch 00017: val_loss did not improve
+Epoch 00018: val_loss did not improve
+Epoch 00019: val_loss did not improve
+Test accuracy: 81.1005%
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[37]:</div>
+<div class="prompt output_prompt">Out[33]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>81.818181818181813</pre>
+<pre>81.100478468899524</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>测试：InceptionV3</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### 1:从另一个预训练的CNN获取bottleneck特征</span>
+<span class="n">Inception_npz</span> <span class="o">=</span> <span class="s1">&#39;bottleneck_features/DogInceptionV3Data.npz&#39;</span>
+<span class="n">train_Inception</span><span class="p">,</span> <span class="n">valid_Inception</span><span class="p">,</span> <span class="n">test_Inception</span> <span class="o">=</span> <span class="n">split_featuresdata</span><span class="p">(</span><span class="n">Inception_npz</span><span class="p">)</span>
+
+
+<span class="c1">### 2:定义你的框架</span>
+<span class="n">myInception_model</span> <span class="o">=</span> <span class="n">get_mymodel</span><span class="p">(</span><span class="n">train_Inception</span><span class="p">)</span>
+
+<span class="c1">### 3:编译模型</span>
+<span class="n">myInception_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="c1">### 4:训练模型</span>
+<span class="n">Inceptionfile_hdf5</span> <span class="o">=</span> <span class="s1">&#39;saved_models/weights.best.Inception.hdf5&#39;</span>
+<span class="n">myInception_model</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">myInception_model</span><span class="p">,</span> <span class="n">Inceptionfile_hdf5</span><span class="p">,</span> <span class="n">train_Inception</span><span class="p">,</span> <span class="n">valid_Inception</span><span class="p">)</span>
+
+<span class="c1">### 5:加载具有最佳验证loss的模型权重</span>
+<span class="n">myInception_model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">Inceptionfile_hdf5</span><span class="p">)</span>
+
+<span class="c1">### 6:在测试集上计算分类准确率</span>
+<span class="n">get_testaccuracy</span><span class="p">(</span><span class="n">myInception_model</span><span class="p">,</span> <span class="n">test_Inception</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+global_average_pooling2d_5 ( (None, 2048)              0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 133)               272517    
+=================================================================
+Total params: 272,517.0
+Trainable params: 272,517.0
+Non-trainable params: 0.0
+_________________________________________________________________
+Epoch 00000: val_loss improved from inf to 0.60780, saving model to saved_models/weights.best.Inception.hdf5
+Epoch 00001: val_loss did not improve
+Epoch 00002: val_loss did not improve
+Epoch 00003: val_loss did not improve
+Epoch 00004: val_loss did not improve
+Epoch 00005: val_loss did not improve
+Epoch 00006: val_loss did not improve
+Epoch 00007: val_loss did not improve
+Epoch 00008: val_loss did not improve
+Epoch 00009: val_loss did not improve
+Epoch 00010: val_loss did not improve
+Epoch 00011: val_loss did not improve
+Epoch 00012: val_loss did not improve
+Epoch 00013: val_loss did not improve
+Epoch 00014: val_loss did not improve
+Epoch 00015: val_loss did not improve
+Epoch 00016: val_loss did not improve
+Epoch 00017: val_loss did not improve
+Epoch 00018: val_loss did not improve
+Epoch 00019: val_loss did not improve
+Test accuracy: 77.0335%
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[38]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>77.033492822966508</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>测试：Xception</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### 1:从另一个预训练的CNN获取bottleneck特征</span>
+<span class="n">Xception_npz</span> <span class="o">=</span> <span class="s1">&#39;bottleneck_features/DogXceptionData.npz&#39;</span>
+<span class="n">train_Xception</span><span class="p">,</span> <span class="n">valid_Xception</span><span class="p">,</span> <span class="n">test_Xception</span> <span class="o">=</span> <span class="n">split_featuresdata</span><span class="p">(</span><span class="n">Xception_npz</span><span class="p">)</span>
+
+
+<span class="c1">### 2:定义你的框架</span>
+<span class="n">myXception_model</span> <span class="o">=</span> <span class="n">get_mymodel</span><span class="p">(</span><span class="n">train_Xception</span><span class="p">)</span>
+
+<span class="c1">### 3:编译模型</span>
+<span class="n">myXception_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="c1">### 4:训练模型</span>
+<span class="n">Xceptionfile_hdf5</span> <span class="o">=</span> <span class="s1">&#39;saved_models/weights.best.Xception.hdf5&#39;</span>
+<span class="n">myXception_model</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">myXception_model</span><span class="p">,</span> <span class="n">Xceptionfile_hdf5</span><span class="p">,</span> <span class="n">train_Xception</span><span class="p">,</span> <span class="n">valid_Xception</span><span class="p">)</span>
+
+<span class="c1">### 5:加载具有最佳验证loss的模型权重</span>
+<span class="n">myXception_model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">Xceptionfile_hdf5</span><span class="p">)</span>
+
+<span class="c1">### 6:在测试集上计算分类准确率</span>
+<span class="n">get_testaccuracy</span><span class="p">(</span><span class="n">myXception_model</span><span class="p">,</span> <span class="n">test_Xception</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+global_average_pooling2d_6 ( (None, 2048)              0         
+_________________________________________________________________
+dense_6 (Dense)              (None, 133)               272517    
+=================================================================
+Total params: 272,517.0
+Trainable params: 272,517.0
+Non-trainable params: 0.0
+_________________________________________________________________
+Epoch 00000: val_loss improved from inf to 0.52651, saving model to saved_models/weights.best.Xception.hdf5
+Epoch 00001: val_loss improved from 0.52651 to 0.49295, saving model to saved_models/weights.best.Xception.hdf5
+Epoch 00002: val_loss did not improve
+Epoch 00003: val_loss did not improve
+Epoch 00004: val_loss did not improve
+Epoch 00005: val_loss did not improve
+Epoch 00006: val_loss did not improve
+Epoch 00007: val_loss did not improve
+Epoch 00008: val_loss did not improve
+Epoch 00009: val_loss did not improve
+Epoch 00010: val_loss did not improve
+Epoch 00011: val_loss did not improve
+Epoch 00012: val_loss did not improve
+Epoch 00013: val_loss did not improve
+Epoch 00014: val_loss did not improve
+Epoch 00015: val_loss did not improve
+Epoch 00016: val_loss did not improve
+Epoch 00017: val_loss did not improve
+Epoch 00018: val_loss did not improve
+Epoch 00019: val_loss did not improve
+Test accuracy: 83.0144%
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[39]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>83.014354066985646</pre>
 </div>
 
 </div>
@@ -14628,7 +14878,7 @@ Test accuracy: 81.8182%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### TODO: 写一个函数，该函数将图像的路径作为输入</span>
@@ -14651,7 +14901,7 @@ Test accuracy: 81.8182%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">human_files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -14676,12 +14926,12 @@ Test accuracy: 81.8182%
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[39]:</div>
+<div class="prompt output_prompt">Out[41]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;Papillon&#39;</pre>
+<pre>&#39;Silky_terrier&#39;</pre>
 </div>
 
 </div>
@@ -14715,7 +14965,7 @@ Test accuracy: 81.8182%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### TODO: 设计你的算法</span>
@@ -16217,7 +16467,7 @@ i5fyUl7KteSlsngpL+WlXEteKouX8lJeyrXk/we+1QMFce0uMwAAAABJRU5ErkJggg==
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>You like  Papillon
+<pre>You like  Silky_terrier
 </pre>
 </div>
 </div>
@@ -16255,9 +16505,9 @@ i5fyUl7KteSlsngpL+WlXEteKouX8lJeyrXk/we+1QMFce0uMwAAAABJRU5ErkJggg==
 <li><p>比预想的要好</p>
 </li>
 <li><p>改进点</p>
-<p>1.可以对与人类相似的狗狗图片增加显示</p>
-<p>2.可以增加识别的动物种类，例如增加鸟类识别</p>
-<p>3.进一步尝试其他算法，提高准确率</p>
+<p>1.可以对图片进行进一步预处理，例如去噪等</p>
+<p>2.可以对模型进一步调参，获得最优参数</p>
+<p>3.增加网络层数，提高准确率</p>
 </li>
 </ul>
 
@@ -16266,7 +16516,7 @@ i5fyUl7KteSlsngpL+WlXEteKouX8lJeyrXk/we+1QMFce0uMwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">veritydata</span> <span class="o">=</span> <span class="n">load_files</span><span class="p">(</span><span class="s1">&#39;verifyImages&#39;</span><span class="p">)</span>
@@ -16303,7 +16553,7 @@ i5fyUl7KteSlsngpL+WlXEteKouX8lJeyrXk/we+1QMFce0uMwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## TODO: 在你的电脑上，在步骤6中，至少在6张图片上运行你的算法。</span>
@@ -20973,7 +21223,7 @@ gg==
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>You like  Beagle
+<pre>You like  Silky_terrier
 =================================
 Bark Bark!
 </pre>
@@ -22746,7 +22996,7 @@ mI3mjBkzZlwA/wupuBidhqSBWwAAAABJRU5ErkJggg==
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Poodle
+<pre>Bichon_frise
 =================================
 Hello human!
 </pre>
